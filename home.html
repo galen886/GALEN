@@ -4,8 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-h1 {text-align: center; margin-top: 150px;}
-img {margin-left: 530px; height: 560px; width: 600px;}
+h1 {text-align: center; margin-top: 150px; font-style: italic;}
+a {
+  align-items: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgb(255, 255, 255);
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+img {
+  width: 300px;
+  height: auto;
+}
 p {text-align: center; font-style: italic;}
 
 </style>
@@ -15,7 +31,11 @@ p {text-align: center; font-style: italic;}
     <h1>GALEN</h1>
     <br>
     <br>
+    
+    <div class="container">
     <img src="tenma copy.jpg" alt="tenma" >
+    </div>
+
   <br>
   <br>
   <span> 
@@ -25,8 +45,8 @@ p {text-align: center; font-style: italic;}
 
 </style>
     <a href="https://24timezones.com/Dallas/time">TIME IN DALLAS</a>
-    "//"
-    <span> id=<time datetime="11:01 am"></time></span>
+    
+    <p><span id="current-time"="11:01 am"></time></span></p>
 
 
 </i>
@@ -36,5 +56,24 @@ p {text-align: center; font-style: italic;}
     <a href="jeffrey.html">jeffrey</a>
     <a href="galen.html">galen</a>
     </nav>
+
+<script>
+  function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+        document.getElementById('current-time').textContent = timeString;
+    }
+
+    // Update time immediately when page loads
+    updateTime();
+
+    // Update time every second
+    setInterval(updateTime, 1000);
+</script>
+
 </body>
 </html>
